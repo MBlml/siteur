@@ -274,22 +274,6 @@ color: rgb(255, 255, 255);</string>
      <string>Viajes disponibles: </string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_4">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>310</y>
-      <width>41</width>
-      <height>21</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 16pt &quot;Arial&quot;;</string>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_11">
     <property name="geometry">
      <rect>
@@ -311,7 +295,7 @@ color: rgb(255, 255, 255);</string>
      <rect>
       <x>210</x>
       <y>160</y>
-      <width>81</width>
+      <width>61</width>
       <height>21</height>
      </rect>
     </property>
@@ -327,7 +311,23 @@ color: rgb(255, 255, 255);</string>
      <rect>
       <x>210</x>
       <y>260</y>
-      <width>81</width>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 18pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>$0</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ingresado_3">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>310</y>
+      <width>51</width>
       <height>21</height>
      </rect>
     </property>
@@ -354,10 +354,10 @@ color: rgb(255, 255, 255);</string>
    <zorder>lineEdit_3</zorder>
    <zorder>label_9</zorder>
    <zorder>label_10</zorder>
-   <zorder>lineEdit_4</zorder>
    <zorder>label_11</zorder>
    <zorder>ingresado</zorder>
    <zorder>ingresado_2</zorder>
+   <zorder>ingresado_3</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
