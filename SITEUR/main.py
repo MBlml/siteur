@@ -14,8 +14,9 @@ class VentanaPrincipal(QMainWindow):
         timer = QTimer(self)
         timer.timeout.connect(self.displayTime)
         timer.start(1000)
-        global total
-        global viajes_disponibles
+        global total, viajes_disponibles, estado, estado_siguiente
+        estado_siguiente = "q0"
+        estado = "q0"
         total = 0
         viajes_disponibles = 0
         self.insert_coin()
@@ -77,6 +78,11 @@ class VentanaPrincipal(QMainWindow):
         self.viajes_disponibles_label.setStyleSheet("font: 90 20pt;")
         self.viajes_disponibles_label.setGeometry(390, 310, 51, 21)
         self.viajes_disponibles_label.setText("0")
+
+        self.estados_label = QLabel(self)
+        self.estados_label.setStyleSheet("font: 90 12pt;")
+        self.estados_label.setGeometry(210, 380, 335, 25)
+        self.estados_label.setText(" ")
   
     def impresion(self):
         moneda = int(self.ComboBox_Monedas.currentText())
@@ -86,14 +92,97 @@ class VentanaPrincipal(QMainWindow):
 
         global total
         global viajes_disponibles
+        global estado
+        global estado_siguiente
         total = total + moneda
         viajes_disponibles = total / 10
-        viajes_disponibles = int(viajes_disponibles)  
+        viajes_disponibles = int(viajes_disponibles) 
+
+        if (estado == "q0") & (moneda_insertada == "1"):
+            estado = "q1"
+            estado_siguiente = "q2" 
+        if (estado == "q0") & (moneda_insertada == "2"):
+            estado = "q2"
+            estado_siguiente = "q1"  
+        if (estado == "q0") & (moneda_insertada == "10"):
+            estado = "q10"
+            estado_siguiente = "q1" 
+        if (estado == "q1") & (moneda_insertada == "1"):
+            estado = "q2"
+            estado_siguiente = "q3" 
+        if (estado == "q1") & (moneda_insertada == "2"):
+            estado = "q3"
+            estado_siguiente = "q4" 
+        if (estado == "q2") & (moneda_insertada == "1"):
+            estado = "q3"
+            estado_siguiente = "q4" 
+        if (estado == "q2") & (moneda_insertada == "2"):
+            estado = "q4"
+            estado_siguiente = "q5"
+        if (estado == "q3") & (moneda_insertada == "1"):
+            estado = "q4"
+            estado_siguiente = "q5" 
+        if (estado == "q3") & (moneda_insertada == "2"):
+            estado = "q5"
+            estado_siguiente = "q6"
+        if (estado == "q3") & (moneda_insertada == "5"):
+            estado = "q8"
+            estado_siguiente = "q9"
+        if (estado == "q4") & (moneda_insertada == "1"):
+            estado = "q5"
+            estado_siguiente = "q6" 
+        if (estado == "q4") & (moneda_insertada == "2"):
+            estado = "q6"
+            estado_siguiente = "q7" 
+        if (estado == "q5") & (moneda_insertada == "2"):
+            estado = "q7" 
+            estado_siguiente = "q8"
+        if (estado == "q5") & (moneda_insertada == "5"):
+            estado = "q10"
+            estado_siguiente = "q1"
+        if (estado == "q6") & (moneda_insertada == "1"):
+            estado = "q7"
+            estado_siguiente = "q8" 
+        if (estado == "q6") & (moneda_insertada == "2"):
+            estado = "q8"
+            estado_siguiente = "q9"
+        if (estado == "q7") & (moneda_insertada == "1"):
+            estado = "q8"
+            estado_siguiente = "q9"  
+        if (estado == "q7") & (moneda_insertada == "2"):
+            estado = "q9"
+            estado_siguiente = "q10"
+        if (estado == "q8") & (moneda_insertada == "1"):
+            estado = "q9" 
+            estado_siguiente = "q10"
+        if (estado == "q8") & (moneda_insertada == "2"):
+            estado = "q10" 
+            estado_siguiente = "q1"
+        if (estado == "q9") & (moneda_insertada == "1"):
+            estado = "q10"
+            estado_siguiente = "q1" 
+        if (estado == "q10") & (moneda_insertada == "1"):
+            estado = "q1"
+            estado_siguiente = "q2"
+        if (estado == "q10") & (moneda_insertada == "2"):
+            estado = "q2"
+            estado_siguiente = "q3"
+        if (estado == "q10") & (moneda_insertada == "5"):
+            estado = "q5"
+            estado_siguiente = "q6"
+        if (estado == "q10") & (moneda_insertada == "10"):
+            estado = "q0"
+            estado_siguiente = "q1"
+
         print("Total: $" + str(total))
         self.total_label.setText("$" + str(total))
+
         print("Viajes disponibles: " + str(viajes_disponibles))
         self.viajes_disponibles_label.setText(str(viajes_disponibles))
-    
+
+        print("Estados: " + estado + "->" + estado_siguiente)
+        self.estados_label.setText(estado + "->" + estado_siguiente)
+
 app = QApplication(sys.argv)
 main = VentanaPrincipal()
 main.show()
