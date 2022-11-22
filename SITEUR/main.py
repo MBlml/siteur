@@ -66,14 +66,17 @@ class VentanaPrincipal(QMainWindow):
         self.ingresado_label = QLabel(self)
         self.ingresado_label.setStyleSheet("font: 90 20pt;")
         self.ingresado_label.setGeometry(210, 160, 81, 21)
+        self.ingresado_label.setText("$0")
 
         self.total_label = QLabel(self)
         self.total_label.setStyleSheet("font: 90 20pt;")
         self.total_label.setGeometry(210, 260, 81, 21)
+        self.total_label.setText("$0")
 
         self.viajes_disponibles_label = QLabel(self)
         self.viajes_disponibles_label.setStyleSheet("font: 90 20pt;")
         self.viajes_disponibles_label.setGeometry(390, 310, 51, 21)
+        self.viajes_disponibles_label.setText("0")
   
     def impresion(self):
         moneda = int(self.ComboBox_Monedas.currentText())
