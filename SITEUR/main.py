@@ -15,7 +15,9 @@ class VentanaPrincipal(QMainWindow):
         timer.timeout.connect(self.displayTime)
         timer.start(1000)
         global total
+        global viajes_disponibles
         total = 0
+        viajes_disponibles = 0
         self.insert_coin()
 
         #Imagenes de logotipos de base
@@ -68,6 +70,10 @@ class VentanaPrincipal(QMainWindow):
         self.total_label = QLabel(self)
         self.total_label.setStyleSheet("font: 90 20pt;")
         self.total_label.setGeometry(210, 260, 81, 21)
+
+        self.viajes_disponibles_label = QLabel(self)
+        self.viajes_disponibles_label.setStyleSheet("font: 90 20pt;")
+        self.viajes_disponibles_label.setGeometry(390, 310, 51, 21)
   
     def impresion(self):
         moneda = int(self.ComboBox_Monedas.currentText())
@@ -76,12 +82,15 @@ class VentanaPrincipal(QMainWindow):
         print("Moneda insertada: $" + moneda_insertada)
 
         global total
+        global viajes_disponibles
         total = total + moneda
+        viajes_disponibles = total / 10
+        viajes_disponibles = int(viajes_disponibles)  
         print("Total: $" + str(total))
         self.total_label.setText("$" + str(total))
-
-        
-     
+        print("Viajes disponibles: " + str(viajes_disponibles))
+        self.viajes_disponibles_label.setText(str(viajes_disponibles))
+    
 app = QApplication(sys.argv)
 main = VentanaPrincipal()
 main.show()
