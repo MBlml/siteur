@@ -103,90 +103,264 @@ class VentanaPrincipal(QMainWindow):
         viajes_disponibles = int(viajes_disponibles) 
         estado = estado_siguiente
 
+        #Estado q0
         if (estado == "q0") & (moneda_insertada == "1"):
-            #estado = "q1"
             estado_siguiente = "q1" 
         elif (estado == "q0") & (moneda_insertada == "2"):
-            #estado = "q2"
             estado_siguiente = "q2"
         elif (estado == "q0") & (moneda_insertada == "5"):
-            #estado = "q5"
-            estado_siguiente = "q5" 
+            estado_siguiente = "q3"
         elif (estado == "q0") & (moneda_insertada == "10"):
-            #estado = "q10"
-            estado_siguiente = "q10" 
-        elif (estado == "q1") & (moneda_insertada == "1"):
-            #estado = "q2"
-            estado_siguiente = "q2" 
-        elif (estado == "q1") & (moneda_insertada == "2"):
-            #estado = "q3"
-            estado_siguiente = "q3" 
-        elif (estado == "q2") & (moneda_insertada == "1"):
-            #estado = "q3"
-            estado_siguiente = "q3" 
-        elif (estado == "q2") & (moneda_insertada == "2"):
-            #estado = "q4"
             estado_siguiente = "q4"
-        elif (estado == "q3") & (moneda_insertada == "1"):
-            #estado = "q4"
-            estado_siguiente = "q4" 
-        elif (estado == "q3") & (moneda_insertada == "2"):
-            #estado = "q5"
-            estado_siguiente = "q5"
-        elif (estado == "q3") & (moneda_insertada == "5"):
-            #estado = "q8"
-            estado_siguiente = "q8"
-        elif (estado == "q4") & (moneda_insertada == "1"):
-            #estado = "q5"
+        #Estado q1
+        if (estado == "q1") & (moneda_insertada == "1"):
             estado_siguiente = "q5" 
-        elif (estado == "q4") & (moneda_insertada == "2"):
-            #estado = "q6"
-            estado_siguiente = "q6" 
-        elif (estado == "q5") & (moneda_insertada == "1"):
-            #estado = "q6" 
-            estado_siguiente = "q6"
-        elif (estado == "q5") & (moneda_insertada == "2"):
-            #estado = "q7" 
+        elif (estado == "q1") & (moneda_insertada == "2"):
             estado_siguiente = "q7"
-        elif (estado == "q5") & (moneda_insertada == "5"):
-            #estado = "q10"
-            estado_siguiente = "q10"
-        elif (estado == "q6") & (moneda_insertada == "1"):
-            #estado = "q7"
+        elif (estado == "q1") & (moneda_insertada == "5"):
+            estado_siguiente = "q22"
+        elif (estado == "q1") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q2
+        if (estado == "q2") & (moneda_insertada == "1"):
             estado_siguiente = "q7" 
+        elif (estado == "q2") & (moneda_insertada == "2"):
+            estado_siguiente = "q6"
+        elif (estado == "q2") & (moneda_insertada == "5"):
+            estado_siguiente = "q18"
+        elif (estado == "q2") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q3
+        if (estado == "q3") & (moneda_insertada == "1"):
+            estado_siguiente = "q19" 
+        elif (estado == "q3") & (moneda_insertada == "2"):
+            estado_siguiente = "q18"
+        elif (estado == "q3") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q3") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q4
+        if (estado == "q4") & (moneda_insertada == "1"):
+            estado_siguiente = "λ (q4 = Terminal, regreso a q0)" 
+        elif (estado == "q4") & (moneda_insertada == "2"):
+            estado_siguiente = "λ (q4 = Terminal, regreso a q0)" 
+        elif (estado == "q4") & (moneda_insertada == "5"):
+            estado_siguiente = "λ (q4 = Terminal, regreso a q0)" 
+        elif (estado == "q4") & (moneda_insertada == "10"):
+            estado_siguiente = "λ (q4 = Terminal, regreso a q0)" 
+        #Estado q5
+        if (estado == "q5") & (moneda_insertada == "1"):
+            estado_siguiente = "q7" 
+        elif (estado == "q5") & (moneda_insertada == "2"):
+            estado_siguiente = "q9"
+        elif (estado == "q5") & (moneda_insertada == "5"):
+            estado_siguiente = "q23"
+        elif (estado == "q5") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q6
+        if (estado == "q6") & (moneda_insertada == "1"):
+            estado_siguiente = "q11" 
         elif (estado == "q6") & (moneda_insertada == "2"):
-            #estado = "q8"
             estado_siguiente = "q8"
-        elif (estado == "q7") & (moneda_insertada == "1"):
-            #estado = "q8"
-            estado_siguiente = "q8"  
+        elif (estado == "q6") & (moneda_insertada == "5"):
+            estado_siguiente = "q21"
+        elif (estado == "q6") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q7
+        if (estado == "q7") & (moneda_insertada == "1"):
+            estado_siguiente = "q9" 
         elif (estado == "q7") & (moneda_insertada == "2"):
-            #estado = "q9"
-            estado_siguiente = "q9"
-        elif (estado == "q8") & (moneda_insertada == "1"):
-            #estado = "q9" 
-            estado_siguiente = "q9"
+            estado_siguiente = "q11"
+        elif (estado == "q7") & (moneda_insertada == "5"):
+            estado_siguiente = "q24"
+        elif (estado == "q7") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q8
+        if (estado == "q8") & (moneda_insertada == "1"):
+            estado_siguiente = "q14" 
         elif (estado == "q8") & (moneda_insertada == "2"):
-            #estado = "q10" 
             estado_siguiente = "q10"
-        elif (estado == "q9") & (moneda_insertada == "1"):
-            #estado = "q10"
-            estado_siguiente = "q10"
+        elif (estado == "q8") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q8") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q9
+        if (estado == "q9") & (moneda_insertada == "1"):
+            estado_siguiente = "q11" 
         elif (estado == "q9") & (moneda_insertada == "2"):
-            #estado = "q10"
-            estado_siguiente = "q1" 
-        elif (estado == "q10") & (moneda_insertada == "1"):
-            #estado = "q1"
-            estado_siguiente = "q1"
+            estado_siguiente = "q13"
+        elif (estado == "q9") & (moneda_insertada == "5"):
+            estado_siguiente = "q25"
+        elif (estado == "q9") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q10
+        if (estado == "q10") & (moneda_insertada == "1"):
+            estado_siguiente = "q16" 
         elif (estado == "q10") & (moneda_insertada == "2"):
-            #estado = "q2"
-            estado_siguiente = "q2"
+            estado_siguiente = "q12"
         elif (estado == "q10") & (moneda_insertada == "5"):
-            #estado = "q5"
-            estado_siguiente = "q5"
+            estado_siguiente = "λ"
         elif (estado == "q10") & (moneda_insertada == "10"):
-            #estado = "q0"
-            estado_siguiente = "q0"
+            estado_siguiente = "λ"
+        #Estado q11
+        if (estado == "q11") & (moneda_insertada == "1"):
+            estado_siguiente = "q13" 
+        elif (estado == "q11") & (moneda_insertada == "2"):
+            estado_siguiente = "q14"
+        elif (estado == "q11") & (moneda_insertada == "5"):
+            estado_siguiente = "q25"
+        elif (estado == "q11") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q12
+        if (estado == "q12") & (moneda_insertada == "1"):
+            estado_siguiente = "λ (q12 = Terminal, regreso a q0)" 
+        elif (estado == "q12") & (moneda_insertada == "2"):
+            estado_siguiente = "λ (q12 = Terminal, regreso a q0)" 
+        elif (estado == "q12") & (moneda_insertada == "5"):
+            estado_siguiente = "λ (q12 = Terminal, regreso a q0)" 
+        elif (estado == "q12") & (moneda_insertada == "10"):
+            estado_siguiente = "λ (q12 = Terminal, regreso a q0)"
+        #Estado q13
+        if (estado == "q13") & (moneda_insertada == "1"):
+            estado_siguiente = "q14" 
+        elif (estado == "q13") & (moneda_insertada == "2"):
+            estado_siguiente = "q15"
+        elif (estado == "q13") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q13") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q14
+        if (estado == "q14") & (moneda_insertada == "1"):
+            estado_siguiente = "q14" 
+        elif (estado == "q14") & (moneda_insertada == "2"):
+            estado_siguiente = "q16"
+        elif (estado == "q14") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q14") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q15
+        if (estado == "q15") & (moneda_insertada == "1"):
+            estado_siguiente = "q16" 
+        elif (estado == "q15") & (moneda_insertada == "2"):
+            estado_siguiente = "q17"
+        elif (estado == "q15") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q15") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q16
+        if (estado == "q16") & (moneda_insertada == "1"):
+            estado_siguiente = "q17" 
+        elif (estado == "q16") & (moneda_insertada == "2"):
+            estado_siguiente = "λ"
+        elif (estado == "q16") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q16") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q17
+        if (estado == "q17") & (moneda_insertada == "1"):
+            estado_siguiente = "λ (q17 = Terminal, regreso a q0)" 
+        elif (estado == "q17") & (moneda_insertada == "2"):
+            estado_siguiente = "λ (q17 = Terminal, regreso a q0)" 
+        elif (estado == "q17") & (moneda_insertada == "5"):
+            estado_siguiente = "λ (q17 = Terminal, regreso a q0)" 
+        elif (estado == "q17") & (moneda_insertada == "10"):
+            estado_siguiente = "λ (q17 = Terminal, regreso a q0)"
+        #Estado q18
+        if (estado == "q18") & (moneda_insertada == "1"):
+            estado_siguiente = "q20" 
+        elif (estado == "q18") & (moneda_insertada == "2"):
+            estado_siguiente = "q21"
+        elif (estado == "q18") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q18") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q19
+        if (estado == "q19") & (moneda_insertada == "1"):
+            estado_siguiente = "λ" 
+        elif (estado == "q19") & (moneda_insertada == "2"):
+            estado_siguiente = "q20"
+        elif (estado == "q19") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q19") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q20
+        if (estado == "q20") & (moneda_insertada == "1"):
+            estado_siguiente = "λ" 
+        elif (estado == "q20") & (moneda_insertada == "2"):
+            estado_siguiente = "q12"
+        elif (estado == "q20") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q20") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q21
+        if (estado == "q21") & (moneda_insertada == "1"):
+            estado_siguiente = "q12" 
+        elif (estado == "q21") & (moneda_insertada == "2"):
+            estado_siguiente = "λ"
+        elif (estado == "q21") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q21") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q22
+        if (estado == "q22") & (moneda_insertada == "1"):
+            estado_siguiente = "q23" 
+        elif (estado == "q22") & (moneda_insertada == "2"):
+            estado_siguiente = "q24"
+        elif (estado == "q22") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q22") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q23
+        if (estado == "q23") & (moneda_insertada == "1"):
+            estado_siguiente = "q24" 
+        elif (estado == "q23") & (moneda_insertada == "2"):
+            estado_siguiente = "q25"
+        elif (estado == "q23") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q23") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q24
+        if (estado == "q24") & (moneda_insertada == "1"):
+            estado_siguiente = "q25" 
+        elif (estado == "q24") & (moneda_insertada == "2"):
+            estado_siguiente = "q26"
+        elif (estado == "q24") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q24") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q25
+        if (estado == "q25") & (moneda_insertada == "1"):
+            estado_siguiente = "q26" 
+        elif (estado == "q25") & (moneda_insertada == "2"):
+            estado_siguiente = "λ"
+        elif (estado == "q25") & (moneda_insertada == "5"):
+            estado_siguiente = "λ"
+        elif (estado == "q25") & (moneda_insertada == "10"):
+            estado_siguiente = "λ"
+        #Estado q26
+        if (estado == "q26") & (moneda_insertada == "1"):
+            estado_siguiente = "λ (q26 = Terminal, regreso a q0)"
+            estado_siguiente =  "q0"
+        elif (estado == "q26") & (moneda_insertada == "2"):
+            estado_siguiente = "λ (q26 = Terminal, regreso a q0)"
+            estado_siguiente =  "q0"
+        elif (estado == "q26") & (moneda_insertada == "5"):
+            estado_siguiente = "λ (q26 = Terminal, regreso a q0)" 
+            estado_siguiente =  "q0"
+        elif (estado == "q26") & (moneda_insertada == "10"):
+            estado_siguiente = "λ (q26 = Terminal, regreso a q0)"
+            estado_siguiente =  "q0"
+
+        if estado_siguiente == "λ":
+            estado_siguiente =  "q0"
+        elif estado_siguiente == "λ (q26 = Terminal, regreso a q0)":
+            estado_siguiente =  "q0"
+        elif estado_siguiente == "λ (q17 = Terminal, regreso a q0)":
+            estado_siguiente =  "q0"
+        elif estado_siguiente == "λ (q12 = Terminal, regreso a q0)":
+            estado_siguiente =  "q0"
+        elif estado_siguiente == "λ (q4 = Terminal, regreso a q0)":
+            estado_siguiente =  "q0"
         
         print("Total: $" + str(total))
         self.total_label.setText("$" + str(total))
@@ -197,8 +371,15 @@ class VentanaPrincipal(QMainWindow):
         print("Estados: " + estado + "->" + estado_siguiente)
         self.estados_label.setText("Actual: (" + estado + ") -> Siguiente: (" + estado_siguiente + ")")
 
+        if total >= 100:
+            self.limite_recarga()
+
     def cerrar(self):
         QMessageBox.information(self, "Recargar", "Se recargaron: $" + str(total) + " exitosamente!")
+        main.close()
+
+    def limite_recarga(self):
+        QMessageBox.information(self, "Limite de recarga", "Haz llegado al limite, se recargaron: $" + str(total) + " exitosamente!")
         main.close()
 
 app = QApplication(sys.argv)
