@@ -231,7 +231,7 @@ class VentanaPrincipal(QMainWindow):
             estado_siguiente = "λ"
         #Estado q14
         if (estado == "q14") & (moneda_insertada == "1"):
-            estado_siguiente = "q14" 
+            estado_siguiente = "q15" 
         elif (estado == "q14") & (moneda_insertada == "2"):
             estado_siguiente = "q16"
         elif (estado == "q14") & (moneda_insertada == "5"):
